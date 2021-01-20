@@ -1,0 +1,503 @@
+@import "variables"
+@import "prefixes"
+/* RESET */
+@import "normalize"
+
+body
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+  max-width: 100%
+  overflow-x: hidden
+
+.wrapper
+  max-width: 1200px
+  width: 100%
+  padding: 0 30px
+  @include box-sizing()
+  margin: 0 auto
+
+  &_fullHD
+    max-width: 1920px
+    padding: 0
+
+.btn
+  display: inline-block
+  @include font($white, $light, 300, 18px, 70px)
+  padding: 0 45px
+  @include box-sizing()
+  text-decoration: none
+  @include transition()
+
+  &:hover
+    opacity: 0.8
+    @include transition()
+
+  &.btn_small
+    text-transform: none
+    padding: 0 30px
+    @include font($white, $light, 300, 16px, 40px)
+
+  &_red
+    background: $red
+    text-transform: uppercase
+    @include transition()
+
+  &_user
+    display: flex
+    background: $red
+    @include transition()
+
+    img
+      @include object-fit(contain)
+      width: 20px
+      margin-right: 20px
+
+.innerTitle
+  @include font($textBlack, $light, 300, 36px)
+
+.bold
+  font-size: $bold
+  font-weight: bold
+
+header
+  position: relative
+
+.header
+  &_top
+    display: flex
+    background: $white
+    padding: 20px 30px
+    justify-content: space-between
+    align-items: center
+
+  &_bottom
+    background: rgba(0, 0, 0, 0.5)
+    padding: 20px 30px
+    @include box-sizing()
+
+    ul
+      display: flex
+      padding: 0
+      margin: 0
+      list-style: none
+      justify-content: space-between
+
+      li
+        position: relative
+        flex-grow: 1
+        text-align: center
+
+        &:not(:last-child)::after
+          content: '\2022'
+          position: absolute
+          right: 0
+          opacity: 0.7
+          @include transform(translateX(50%))
+          top: 3px
+
+      a
+        text-decoration: none
+        @include font($white, $light, 300, 15px)
+
+.logo
+  display: flex
+  align-items: center
+
+  img
+    flex-shrink: 0
+    width: 70px
+    @include object-fit(contain)
+    margin-right: 20px
+
+  &__text
+    max-width: 340px
+
+    &_top
+      @include font($textBlack, $regular, normal, 20px)
+      margin-bottom: 10px
+
+    &_bottom
+      @include font($textBlack, $light, 300, 14px)
+      opacity: 0.4
+
+.socials
+  display: flex
+  list-style: none
+  padding: 0
+  margin: 0
+
+  li
+    &:not(:last-child)
+      margin-right: 10px
+
+.s_firstScreen
+  margin-top: -200px
+  margin-bottom: 70px
+
+  .wrapper_fullHD
+    background-size: cover
+
+.firstScreen
+  padding-top: 300px
+  padding-bottom: 100px
+
+  .blur
+    background: rgba(0, 0, 0, 0.5)
+    width: 55%
+    padding: 50px 60px
+
+  &__content
+    @include font($white, $light, 300, 48px, 1.4)
+    margin-bottom: 40px
+
+  .btn::after
+    content: '\203A'
+    font-weight: bold
+    margin-left: 20px
+
+.s_about
+  margin-bottom: 70px
+
+.about
+  display: flex
+  justify-content: space-between
+
+  .innerTitle
+    margin-bottom: 80px
+
+  &__content
+    display: flex
+    width: 65%
+    justify-content: space-between
+    flex-shrink: 0
+
+    &_left
+      width: 48%
+
+      img
+        @include object-fit(cover)
+        max-width: 100%
+        height: 500px
+
+    &_right
+      width: 48%
+
+      p
+        @include font($textBlack, $regular, normal, 15px, 1.3)
+        margin: 0
+
+        &:not(:last-child)
+          margin-bottom: 20px
+
+  &__advantages
+    width: 30%
+    flex-shrink: 0
+
+    .innerTitle
+      margin-bottom: 40px
+
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+
+    li
+      display: flex
+      align-items: center
+      justify-content: center
+
+      &:not(:last-child)
+        margin-bottom: 15px
+
+      p
+        margin: 0
+
+    &__icon
+      display: flex
+      justify-content: center
+      align-items: center
+      background: $red
+      width: 80px
+      height: 80px
+      @include border-radius()
+      flex-shrink: 0
+      margin-right: 30px
+
+      img
+        width: 40px
+        height: 40px
+
+.s_team
+  background: $grey
+  margin-bottom: 70px
+
+.team
+  padding: 60px 0
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  .innerTitle
+    color: $white
+    margin-bottom: 40px
+
+  p
+    @include font($white, $regular, normal, 18px, 1.4)
+    margin: 0
+
+  &_left
+    width: 60%
+    flex-shrink: 0
+
+  &_right
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+
+    li
+      display: flex
+      align-items: center
+
+      &:first-child
+        margin-bottom: 40px
+
+    &__content
+      margin-left: 40px
+
+      &__num
+        @include font($white, $bold, bold, 52px)
+
+.with
+  display: flex
+  justify-content: space-between
+
+  .innerTitle
+    max-width: 150px
+
+  &__list
+    display: flex
+    margin: 0
+    padding: 0
+    list-style: none
+    flex-wrap: wrap
+    width: 70%
+    justify-content: space-between
+
+    li
+      width: 48%
+      display: flex
+      align-items: flex-start
+      margin-bottom: 50px
+
+      img
+        width: 50px
+        margin-right: 40px
+
+      p
+        margin: 0
+
+.s_programs
+  margin-bottom: 60px
+
+  .wrapper_fullHD
+    background: url("../images/Vector.png") 100% 100% no-repeat
+    background-size: cover
+
+.programs
+  padding: 50px 0
+
+  .innerTitle
+    text-align: center
+    margin-bottom: 50px
+
+  &__slider
+    &__item
+      background: $white
+      text-align: center
+
+      > img
+        height: 250px
+        margin: 0
+        width: 100%
+        @include object-fit()
+
+      &__icon
+        display: flex
+        justify-content: center
+        align-items: center
+        background: $red
+        width: 70px
+        height: 70px
+        @include border-radius()
+        @include transform(translateY(-50%))
+        margin: 0 auto
+
+        img
+          width: 30px
+          height: 30px
+
+      &__title
+        @include font($textBlack, $light, 300, 18px, 1.3)
+        margin-bottom: 20px
+        padding: 0 20px
+
+      p
+        padding: 0 20px
+        @include font($textBlack, $light, 300, 13px)
+        margin-bottom: 20px
+
+.s_teachers
+  margin-bottom: 60px
+
+  .innerTitle
+    text-align: center
+    margin-bottom: 60px
+
+.teachers
+  &__slider
+    margin-bottom: 60px
+
+    &__item
+      overflow: hidden
+      border: 1px solid #DCDCDC
+      padding: 5px
+      background: $white
+      @include box-sizing()
+
+      img
+        height: 320px
+        margin: 0 0 20px
+        width: 100%
+        @include object-fit()
+
+      &__title
+        @include font($textBlack, $light, 300, 18px, 1.3)
+        margin-bottom: 20px
+        padding: 0 20px
+        text-align: center
+
+      p
+        padding: 0 20px
+        @include font($textBlack, $light, 300, 13px)
+        margin-bottom: 20px
+        text-align: center
+
+      ul
+        @include font($red, $regular, normal, 14px, 1.3)
+
+        li
+          &:not(:last-child)
+            margin-bottom: 20px
+
+          span
+            color: $textBlack
+
+  &__all
+    text-align: center
+
+.s_news
+  background: $lightGrey
+  padding: 60px 0
+
+.news
+  display: flex
+  justify-content: space-between
+
+  &_left
+    width: 25%
+    flex-shrink: 0
+
+    .btn
+      display: block
+      text-align: center
+
+  &_right
+    width: 70%
+    display: flex
+    justify-content: space-between
+
+  .innerTitle
+    margin-bottom: 60px
+
+  &__links
+    list-style: none
+    display: flex
+    flex-direction: column
+    margin: 0 0 40px
+    padding: 0
+
+    li
+      &:not(:last-child)
+        border-bottom: 1px solid $grey
+
+      a
+        @include font($textBlack, $light, 300, 18px, 40px)
+        text-decoration: none
+        @include transition()
+
+        &:hover
+          @include transition()
+          color: $red
+
+  &__item
+    display: flex
+    flex-direction: column
+    width: 48%
+    background: $red
+    text-decoration: none
+
+    &:last-child
+      background: rgba(0, 0, 0, 0.8)
+
+    img
+      height: 300px
+      width: 100%
+      @include object-fit()
+
+    & > div
+      padding: 25px
+
+    &__anons
+      @include font($white, $light, 300, 18px, 1.3)
+      margin-bottom: 20px
+
+    &__date
+      @include font($white, $light, 300, 13px)
+      opacity: 0.6
+
+.s_partners
+  background: $middleGrey
+
+  .innerTitle
+    text-align: center
+    margin-bottom: 60px
+
+.partners
+  padding: 60px 0
+
+  p
+    text-align: center
+    max-width: 810px
+    margin: 0 auto 70px
+    @include font($textBlack, $regular, normal, 14px, 1.5)
+
+  &__item
+    background: $white
+    padding: 30px 40px
+
+    img
+      width: 100%
+      @include object-fit(contain)
+      height: 60px
+      margin-bottom: 30px
+
+    p
+      @include font($textBlack, $regular, normal, 13px, 1.4)
+      margin: 0 auto
+
+@import "hamburger"
+
+/* RESPONSIVE */
+@import "responsive"
