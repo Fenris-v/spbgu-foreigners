@@ -12,7 +12,7 @@ body
   overflow-x: hidden
 
 .wrapper
-  max-width: 1200px
+  max-width: 1260px
   width: 100%
   padding: 0 30px
   @include box-sizing()
@@ -29,6 +29,7 @@ body
   @include box-sizing()
   text-decoration: none
   @include transition()
+  border: none
 
   &:hover
     opacity: 0.8
@@ -76,6 +77,7 @@ body
 
 header
   position: relative
+  z-index: 1
 
 .header
   &_top
@@ -117,6 +119,7 @@ header
 .logo
   display: flex
   align-items: center
+  text-decoration: none
 
   img
     flex-shrink: 0
@@ -156,6 +159,23 @@ header
   padding-top: 300px
   padding-bottom: 100px
 
+  &__slider
+    .slick-dots
+      left: 70%
+      @include transform(translate(0))
+      bottom: 110px
+
+      li
+        border: 1px solid transparent
+        padding: 3px
+        @include border-radius()
+
+      li.slick-active
+        border: 1px solid $white
+
+        button
+            background: $white
+
   .blur
     background: rgba(0, 0, 0, 0.5)
     width: 55%
@@ -176,6 +196,7 @@ header
 .about
   display: flex
   justify-content: space-between
+  flex-wrap: wrap
 
   .innerTitle
     margin-bottom: 80px
@@ -185,6 +206,7 @@ header
     width: 65%
     justify-content: space-between
     flex-shrink: 0
+    flex-wrap: wrap
 
     &_left
       width: 48%
@@ -251,6 +273,7 @@ header
   display: flex
   justify-content: space-between
   align-items: center
+  flex-wrap: wrap
 
   .innerTitle
     color: $white
@@ -286,6 +309,7 @@ header
 .with
   display: flex
   justify-content: space-between
+  flex-wrap: wrap
 
   .innerTitle
     max-width: 150px
@@ -320,7 +344,7 @@ header
     background-size: cover
 
 .programs
-  padding: 50px 0
+  padding: 50px 0 120px
 
   .innerTitle
     text-align: center
@@ -374,15 +398,23 @@ header
   list-style: none
   display: flex
   font-size: 0
-  margin-top: 60px
-  justify-content: center
+  left: 50%
   padding: 0
+  position: absolute
+  @include transform(translateX(-50%))
 
   li
+    margin-top: 60px
+    border: 1px solid transparent
+    padding: 3px
+    @include border-radius()
+
     &:not(:last-child)
       margin-right: 30px
 
     &.slick-active
+      border: 1px solid $red
+
       button
         background: $red
 
@@ -436,7 +468,7 @@ header
       padding: 5px
       background: $white
       @include box-sizing()
-      margin: 0 10px
+      margin: 0 10px 1px
 
       img
         height: 320px
@@ -474,24 +506,15 @@ header
   padding: 60px 0
 
 .news
-  display: flex
-  justify-content: space-between
-
-  &_left
-    width: 25%
-    flex-shrink: 0
-
-    .btn
-      display: block
-      text-align: center
-
-  &_right
-    width: 70%
-    display: flex
-    justify-content: space-between
-
   .innerTitle
     margin-bottom: 60px
+    text-align: center
+
+  &_right
+    margin-bottom: 60px
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
 
   &__links
     list-style: none
@@ -516,11 +539,11 @@ header
   &__item
     display: flex
     flex-direction: column
-    width: 48%
+    width: 31%
     background: $red
     text-decoration: none
 
-    &:last-child
+    &:nth-child(even)
       background: rgba(0, 0, 0, 0.8)
 
     img
@@ -539,6 +562,9 @@ header
       @include font($white, $light, 300, 13px)
       opacity: 0.6
 
+  &__btn
+    text-align: center
+
 .s_partners
   background: $middleGrey
   margin-bottom: 60px
@@ -556,9 +582,13 @@ header
     margin: 0 auto 70px
     @include font($textBlack, $regular, normal, 14px, 1.5)
 
+  &__slider
+    margin-bottom: 120px
+
   &__item
     background: $white
     padding: 30px 40px
+    margin: 0 10px
 
     img
       width: 100%
@@ -578,6 +608,7 @@ header
     margin-bottom: 50px
 
   &__container
+    flex-wrap: wrap
     display: flex
     justify-content: space-between
     align-items: flex-start
@@ -588,10 +619,19 @@ header
     &__item
       margin-bottom: 10px
 
+      img
+        @include transform(rotate(0))
+        @include transition()
+
+      &.active
+        img
+          @include transform(rotate(45deg))
+          @include transition()
+
       &__name
-        @include font($textBlack, $regular, normal, 20px, 60px)
+        @include font($textBlack, $regular, normal, 20px)
         border: 1px solid #E8E8E8
-        padding: 0 30px
+        padding: 20px 30px
         text-decoration: none
         display: flex
         justify-content: space-between
@@ -712,6 +752,7 @@ header
 
 .footer
   display: flex
+  flex-wrap: wrap
   justify-content: space-between
 
   &_top
@@ -808,6 +849,51 @@ header
       a
         color: $red
         text-decoration: none
+
+.modal
+  display: none
+  width: 100%
+  background: #fff
+  padding: 30px
+
+.modal--default
+  max-width: 380px
+  text-align: center
+
+.modal--callback
+  max-width: 500px
+  width: 100%
+  padding: 30px
+  background: #fff
+  text-align: center
+
+.modal__title
+  margin: 0 0 35px 0
+  font-size: 30px
+  font-weight: 700
+  text-align: center
+
+.modal__title.left
+  text-align: left
+
+.modal-form__row
+  margin: 0 0 20px 0
+
+  label
+    @include font($textBlack, $light, 300, 15px)
+
+  input
+    @include font($textBlack, $light, 300, 15px, 40px)
+    padding: 0 15px
+
+    &:focus, &:active
+      outline: none
+
+  input[type='text'], input[type='phone']
+    width: 100%
+
+.modal-form__row:last-child
+  margin: 0
 
 @import "hamburger"
 
