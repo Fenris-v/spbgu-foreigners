@@ -94,6 +94,22 @@
       width: 100%
       margin-top: 50px
 
+  .photoSlider
+    margin-bottom: 70px
+
+  .list__item
+    width: 32%
+
+    &:last-child
+      margin-right: auto
+      margin-left: 2%
+
+  .compactList__item
+    width: 50%
+
+  .tabs, .tabs_compact
+    margin-top: 20px
+
 @media only screen and (max-width: 767px)
   .wrapper
     padding: 0 15px
@@ -141,6 +157,35 @@
     > div
       justify-content: center
 
+  .content_flex
+    flex-direction: column
+
+  .content_half
+    width: 100%
+
+    img
+      margin-bottom: 20px
+
+  .table
+    overflow-x: scroll
+
+    table tr td:first-child, .table table tr td:nth-child(2)
+      width: auto
+
+  .chessFlex__item
+    flex-direction: column
+
+  .chessFlex
+    img
+      width: 100%
+
+  .chessFlex__content
+    width: 100%
+    padding: 50px 0
+
+  .chessFlex__item.reverse
+    flex-direction: column
+
 @media only screen and (max-width: 640px)
   .innerTitle
     font-size: 25px
@@ -182,3 +227,35 @@
     .wrapper
       flex-direction: column
       align-items: center
+
+  .map
+    flex-direction: column
+
+    &_left, &_right
+      width: 100%
+
+    &_right
+      height: 350px
+
+  .contacts
+    flex-direction: column
+
+    &_left, &_right
+      width: 100%
+
+    &_left
+      margin-bottom: 40px
+
+      .contacts__title
+        margin-bottom: 20px
+
+  .list__item, .compactList__item
+    width: 48%
+
+  .compactList__item
+    flex-direction: column
+
+    img
+      margin-right: 0
+      margin-bottom: 20px
+      width: 100%

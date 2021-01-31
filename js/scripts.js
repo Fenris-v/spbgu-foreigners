@@ -130,17 +130,17 @@ $(document).ready(() => {
             breakpoint: 1000,
             settings: {
                 slidesToShow: 3,
-                arrows: false
+                arrows: false,
+                dots: true
             }
-        },
-            {
-                breakpoint: 640,
-                settings: {
-                    slidesToShow: 2,
-                    arrows: false
-                }
+        }, {
+            breakpoint: 640,
+            settings: {
+                slidesToShow: 2,
+                arrows: false,
+                dots: true
             }
-        ]
+        }]
     });
 
     $('.firstScreen__slider').slick({

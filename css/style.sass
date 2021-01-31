@@ -1142,9 +1142,17 @@ header
 .photoSlider
   margin-bottom: 50px
 
+  .slick-dots li
+    margin-top: 20px
+
   a.slick-slide
     height: 230px
     margin: 0 10px
+    @include transition()
+
+    &.slick-active
+      opacity: 1
+      @include transition()
 
     img
       width: 100%
